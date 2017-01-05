@@ -17,11 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('profile_name');
-            $table->string('bio');
+            $table->text('bio');
             $table->string('email')->unique();
             $table->string('password');
             $table->text('prefs'); // json - UserPrefs
-            $table->text('subscriptions');
+            $table->text('subscriptions'); //
             $table->boolean('confirmed')->default(0);
             $table->string('confirm_code');
             $table->rememberToken();

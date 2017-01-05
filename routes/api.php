@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+use App\Post;
+
+Route::get('/users/{id}', 'UserController@show');
+Route::get('/users', 'UserController@index');
+Route::post('/users', 'Auth\RegisterController@create');
+Route::put('/users/{id}', 'UserController@edit');
+Route::delete('/users/{id}', 'UserController@destroy');
+
+
+Route::resource('/posts', 'PostController', [
+	'except' => [ 'create', 'edit', 'destroy']
+]);
+
+Route::resource('/tags', 'TagController', [
+	'only' => ['index', 'show', 'store']
+]);
+
+Route::resource('/files', 'FileController', [
+	'only' => ['index', 'show', 'store']
+]);

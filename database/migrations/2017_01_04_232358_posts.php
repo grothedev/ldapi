@@ -16,14 +16,14 @@ class Posts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('body'); //json - PostText
+            $table->text('body'); //json - PostText
             $table->timestamps();
             $table->float('lat', 10, 6);
             $table->float('lon', 10, 6);
             $table->integer('user_id')->unsigned(); // make this nullable if addin anon posting
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('parent_id')->unsigned();
-            $table->foreign('parent_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->integer('parent_id')->unsigned()->nullable(); //this references another post, but it can be null if there is no parent
+            //$table->foreign('parent_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
 

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'post_text', 'lat', 'lon', 'user_id'];
+    protected $fillable = [
+        'title', 'body', 'lat', 'lon', 'user_id', 'parent_id'
+    ];
 
     public function tags(){
     	return $this->hasMany('App\Tag');

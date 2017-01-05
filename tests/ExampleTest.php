@@ -13,7 +13,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-             ->see('Laravel');
+        $response = $this->call('POST', 'api/tags', array());
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }
