@@ -34,7 +34,9 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required|unique|max:255'
+        ]);
     }
 
     /**

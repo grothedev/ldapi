@@ -27,16 +27,14 @@ class FileController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * should user id be required? 
      */
     public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255|min:1|unique',
-            'description' => 'required|max:255'
+            'description' => 'required|max:255',
+            'user_id' => 'required'
         ]);
     }
 
