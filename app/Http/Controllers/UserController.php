@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class UserController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $response = User::all()->toJSON();
+        return $response;
     }
 
     /**
@@ -45,7 +48,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = User::find($id)->toJSON();
+        return $response;    
     }
 
     /**

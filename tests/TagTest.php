@@ -15,7 +15,7 @@ class TagTest extends TestCase
     	$this->assertEquals(200, $response->getStatusCode());
     }
     public function testShow(){
-    	$response = $this->call('GET', 'api/tags/2');
+    	$response = $this->call('GET', 'api/tags/1');
     	$this->assertEquals(200, $response->getStatusCode());
     }
 }

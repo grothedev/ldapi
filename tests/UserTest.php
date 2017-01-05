@@ -34,17 +34,30 @@ class UserTest extends TestCase
     }
 
     public function testShow(){
-        $response = $this->call('GET', 'api/users/2');
+        $response = $this->call('GET', 'api/users/1');
         $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testEdit(){
-        $response = $this->call('PUT', 'api/users/2');
+        $response = $this->call('PUT', 'api/users/1');
         $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testDelete(){
-        $response = $this->call('DELETE', 'api/users/2');
+        $response = $this->call('DELETE', 'api/users/1');
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testLogin(){
+        $response = $this->call('POST', 'api/users/login', [
+            'name' => 'goon',
+            'password' => 'pass'
+        ]);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testLogout(){
+
     }
 }

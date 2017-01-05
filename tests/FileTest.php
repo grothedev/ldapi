@@ -15,7 +15,7 @@ class FileTest extends TestCase
     	$this->assertEquals(200, $response->getStatusCode());
     }
     public function testShow(){
-    	$response = $this->call('GET', 'api/files/2');
+    	$response = $this->call('GET', 'api/files/1');
     	$this->assertEquals(200, $response->getStatusCode());
     }
 }

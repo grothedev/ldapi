@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\File;
+
 class FileController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        $response = File::all()->toJSON();
+        return $response;
     }
 
     /**
@@ -46,7 +49,8 @@ class FileController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = File::find($id)->toJSON();
+        return $response;
     }
 
     /**

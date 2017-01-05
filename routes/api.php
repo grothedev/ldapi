@@ -20,7 +20,8 @@ Route::get('/users', 'UserController@index');
 Route::post('/users', 'Auth\RegisterController@create');
 Route::put('/users/{id}', 'UserController@edit');
 Route::delete('/users/{id}', 'UserController@destroy');
-
+Route::post('/users/login', 'Auth\LoginController@login');
+Route::post('/users/logout', 'Auth\LoginController@logout');
 
 Route::resource('/posts', 'PostController', [
 	'except' => [ 'create', 'edit', 'destroy']

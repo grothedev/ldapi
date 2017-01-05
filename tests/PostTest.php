@@ -10,7 +10,13 @@ class PostTest extends TestCase
 {
     public function testCreate(){
     	
-        $u = User::first();
+        //login and make post
+
+        $this->call('POST', 'api/users/login', [
+            'name' => 'goon',
+            'password' => 'pass'
+        ]);
+
 
         $postData = array(
             'title' => 'title',
@@ -31,11 +37,11 @@ class PostTest extends TestCase
     	$this->assertEquals(200, $response->getStatusCode());
     }
     public function testShow(){
-    	$response = $this->call('GET', 'api/posts/2');
+    	$response = $this->call('GET', 'api/posts/1');
     	$this->assertEquals(200, $response->getStatusCode());
     }
     public function testEdit(){
-    	$response = $this->call('PUT', 'api/posts/2');
+    	$response = $this->call('PUT', 'api/posts/1');
     	$this->assertEquals(200, $response->getStatusCode());
     }
 }

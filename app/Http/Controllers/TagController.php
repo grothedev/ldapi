@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Tag;
+
 class TagController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $response = Tag::all()->toJSON();
+        return $response;
     }
 
     /**
@@ -47,7 +50,8 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = Tag::find($id)->toJSON();
+        return $response;
     }
 
     /**
